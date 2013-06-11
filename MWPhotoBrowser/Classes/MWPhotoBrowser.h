@@ -38,11 +38,16 @@
 - (id)initWithPhotos:(NSArray *)photosArray  __attribute__((deprecated)); // Depreciated
 - (id)initWithDelegate:(id <MWPhotoBrowserDelegate>)delegate;
 
+@property (weak, nonatomic) id<MWPhotoBrowserDelegate> delegate;
+@property (nonatomic, readonly) NSUInteger currentPhotoIndex;
+
 // Reloads the photo browser and refetches data
 - (void)reloadData;
 
 // Set page that photo browser starts on
 - (void)setInitialPageIndex:(NSUInteger)index;
+
+- (void)savePhoto;
 
 @end
 

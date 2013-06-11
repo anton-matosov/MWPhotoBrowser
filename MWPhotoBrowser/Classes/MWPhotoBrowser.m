@@ -140,6 +140,21 @@ navigationBarBackgroundImageLandscapePhone = _navigationBarBackgroundImageLandsc
 @synthesize progressHUD = _progressHUD;
 @synthesize previousViewControllerBackButton = _previousViewControllerBackButton;
 
+#pragma mark - Property Accessors
+
+- (void) setDelegate:(id<MWPhotoBrowserDelegate>)newValue
+{
+  if (_delegate != newValue) {
+    _delegate = newValue;
+    [self reloadData];
+  }
+}
+
+- (NSUInteger) currentPhotoIndex
+{
+  return _currentPageIndex;
+}
+
 #pragma mark - NSObject
 
 - (id)init {
